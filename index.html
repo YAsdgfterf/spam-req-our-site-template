@@ -84,7 +84,9 @@
             const tabCount = parseInt(tabCountInput.value, 10);
             if (!isNaN(tabCount) && tabCount > 0) {
                 for (let i = 0; i < tabCount; i++) {
-                    window.open(`https://vplaza-dev.github.io/active/embed.html?url=https://example.com`, '_blank');
+                    let newTab = window.open(`https://vplaza-dev.github.io/active/embed.html?url=https://example.com`, '_blank');
+                    newTab.blur();  // Try to blur the newly opened tab to keep it in the background
+                    window.focus();  // Focus back on the current window
                 }
             } else {
                 alert('Please enter a valid number greater than 0.');
